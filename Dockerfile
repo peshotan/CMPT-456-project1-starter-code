@@ -4,7 +4,7 @@ LABEL maintainer="Nguyen Cao \"nguyen_cao@sfu.ca\""
 LABEL repository="https://csil-git1.cs.surrey.sfu.ca/nguyenc/lucene-solr.git"
 
 # Installs Ant
-ENV ANT_VERSION 1.10.6
+ENV ANT_VERSION 1.10.8
 RUN cd && \
     wget -q http://www.us.apache.org/dist//ant/binaries/apache-ant-${ANT_VERSION}-bin.tar.gz && \
     tar -xzf apache-ant-${ANT_VERSION}-bin.tar.gz && \
