@@ -4,14 +4,17 @@ LABEL maintainer="Nguyen Cao \"nguyen_cao@sfu.ca\""
 LABEL repository="https://csil-git1.cs.surrey.sfu.ca/nguyenc/lucene-solr.git"
 
 # Installs Ant
-ENV ANT_VERSION 1.10.8
+ENV ANT_VERSION 1.10.6
 RUN cd && \
-    wget -q http://www.us.apache.org/dist//ant/binaries/apache-ant-${ANT_VERSION}-bin.tar.gz && \
+    pwd && \
+    wget -q https://archive.apache.org/dist/ant/binaries/apache-ant-${ANT_VERSION}-bin.tar.gz && \
     tar -xzf apache-ant-${ANT_VERSION}-bin.tar.gz && \
     mv apache-ant-${ANT_VERSION} /opt/ant && \
-    rm apache-ant-${ANT_VERSION}-bin.tar.gz
+    rm apache-ant-${ANT_VERSION}-bin.tar.gz && \
+    wget https://archive.apache.org/dist/ant/ivy/2.4.0/maven2/2.4.0/ivy-2.4.0.jar -P /root/.ant/lib/
 ENV ANT_HOME /opt/ant
 ENV PATH ${PATH}:/opt/ant/bin
+
 
 # Compile Lucene
 WORKDIR /lucene-solr
